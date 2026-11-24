@@ -22,6 +22,7 @@ def main() -> None:
     text = RANT.strip()
     assert text, "rant must not be empty or only whitespace"
     assert 1 <= len(text) <= 400, f"rant is {len(text)} characters"
+    assert "  " not in text, "rant must not contain double spaces"
     out_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "entry.txt")
